@@ -1,0 +1,15 @@
+version: "3"
+services:
+  llm-answer-engine:
+    build: .
+    environment:
+      - OPENAI_API_KEY=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
+      - GROQ_API_KEY=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
+      - BRAVE_SEARCH_API_KEY=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
+      - SERPER_API=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
+      - GOOGLE_API_KEY=AIzaSyBOoDoC4r8XcRmMA1UFe8_4Q0P_1imyHj0
+# uncomment the following the change the default config (ollama, etc)
+#    volumes:
+#      - $PWD/config.tsx:/home/node/app/config/config.tsx:ro
+    ports:
+      - 3000:3000
