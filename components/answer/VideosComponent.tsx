@@ -1,6 +1,6 @@
 // 1. Import the necessary hooks from the 'react' library
 import { useState, useEffect } from 'react';
-
+import { Video} from 'lucide-react'
 // 2. Define the 'Video' interface to represent a video object
 interface Video {
     link: string;
@@ -19,7 +19,7 @@ const VideosComponent: React.FC<VideosComponentProps> = ({ videos }) => {
     const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
     const [loadedImages, setLoadedImages] = useState<boolean[]>([]);
     const [isFullScreen, setIsFullScreen] = useState(false);
-
+    
     // 6. Use the 'useEffect' hook to initialize the 'loadedImages' state based on the number of videos
     useEffect(() => {
         setLoadedImages(Array(videos.length).fill(false));
@@ -71,8 +71,8 @@ return (
     <div className="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-4 mt-4 w-full">
         {/* 13. Render the header with the "Videos" title and the Serper logo */}
         <div className="flex items-center">
+            <h2 className="flex items-center text-lg leading-none py-2"> {<Video size={18} className="mr-2" />} </h2>
             <h2 className="text-lg font-semibold flex-grow text-black dark:text-white">Videos</h2>
-            <img src="./serper.png" alt="serper logo" className="w-6 h-6" />
         </div>
 
         {/* 14. Render the video thumbnails */}

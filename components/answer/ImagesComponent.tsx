@@ -1,6 +1,6 @@
 // 1. Import the 'useState' hook from React
 import { useState } from 'react';
-
+import {Image } from 'lucide-react'
 // 2. Define the 'Image' interface with a required 'link' property and an optional 'alt' property
 interface Image {
     link: string;
@@ -17,7 +17,7 @@ const ImagesComponent: React.FC<ImagesComponentProps> = ({ images }) => {
     // 5. Use the 'useState' hook to manage the 'showMore' and 'selectedImage' state
     const [showMore, setShowMore] = useState(false);
     const [selectedImage, setSelectedImage] = useState<string | null>(null);
-
+    
     // 6. Define the 'ImagesSkeleton' component to render a loading skeleton
     const ImagesSkeleton = () => (
         <>
@@ -50,8 +50,8 @@ const ImagesComponent: React.FC<ImagesComponentProps> = ({ images }) => {
     return (
         <div className="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-4 mt-4">
             <div className="flex items-center">
+                <h2 className="flex items-center text-lg leading-none py-2"> {<Image size={18} className="mr-2" />} </h2>
                 <h2 className="text-lg font-semibold flex-grow text-black dark:text-white">Images</h2>
-                <img src="./brave.png" alt="brave logo" className="w-6 h-6" />
             </div>
             <div className={`flex flex-wrap mx-1 transition-all duration-500 ${showMore ? 'max-h-[500px]' : 'max-h-[200px]'} overflow-hidden`}>
                 {images.length === 0 ? (

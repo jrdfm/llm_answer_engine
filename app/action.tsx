@@ -6,7 +6,6 @@ import cheerio from 'cheerio';
 import { RecursiveCharacterTextSplitter } from 'langchain/text_splitter';
 import { MemoryVectorStore } from 'langchain/vectorstores/memory';
 import { Document as DocumentInterface } from 'langchain/document';
-import { OpenAIEmbeddings } from '@langchain/openai';
 
 import { GoogleGenerativeAIEmbeddings } from "@langchain/google-genai";
 
@@ -58,13 +57,13 @@ async function getSources(message: string, numberOfPagesToScan = config.numberOf
     const apiKey = process.env.GOOGLE_API_KEY as string
     const cx = process.env.GOOGLE_CX as string
 
-    console.log(apiKey);
     let url = `https://www.googleapis.com/customsearch/v1?key=${apiKey}&cx=${cx}&q=${encodeURIComponent(message)}`;
     
     const response = await fetch(url);
     const jsonResponse = await response.json();
-    
-  
+    if (!response.ok) {
+      throw new Error(`Failed to fetch search results. Status: ${response.status}`);
+    }
     const final = jsonResponse.items.map((result: any): SearchResult => ({
       title: result.title,
       link: result.link,
@@ -265,16 +264,27 @@ async function myAction(userMessage: string): Promise<any> {
   "use server";
   const streamable = createStreamableValue({});
   (async () => {
-    const [images, sources, videos] = await Promise.all([
-      getImages(userMessage),
-      getSources(userMessage),
-      getVideos(userMessage),
-    ]);
+    // const [images, sources, videos] = await Promise.all([
+    //   getImages(userMessage),
+    //   getSources(userMessage),
+    //   getVideos(userMessage),
+    // ]);
     // console.log(sources);
+    // const [images, sources, videos] = await Promise.allSettled([
+    //   getImages(userMessage),
+    //   getSources(userMessage),
+    //   getVideos(userMessage),
+    // ]);
+    const images = await getImages(userMessage);
+    const sources = await getSources(userMessage);
+    const videos = await getVideos(userMessage);
+
 
     streamable.update({ 'searchResults': sources });
     streamable.update({ 'images': images });
     streamable.update({ 'videos': videos });
+    
+
     const html = await get10BlueLinksContents(sources);
     const vectorResults = await processAndVectorizeContent(html, userMessage);
     const chatCompletion = await openai.chat.completions.create({

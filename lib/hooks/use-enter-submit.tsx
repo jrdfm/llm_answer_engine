@@ -18,6 +18,6 @@ export function useEnterSubmit(): {
       event.preventDefault();
     }
   };
-
+  
   return { formRef, onKeyDown: handleKeyDown };
 }

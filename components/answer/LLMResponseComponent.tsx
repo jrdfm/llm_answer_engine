@@ -7,6 +7,9 @@ interface LLMResponseComponentProps {
 
 // 2. Import the 'Markdown' component from 'react-markdown'
 import Markdown from 'react-markdown';
+import React from 'react'
+
+import { BookCheck} from 'lucide-react'
 
 // 3. Define the 'StreamingComponent' functional component that renders the 'currentLlmResponse'
 const StreamingComponent = ({ currentLlmResponse }: { currentLlmResponse: string }) => {
@@ -29,6 +32,7 @@ const StreamingComponent = ({ currentLlmResponse }: { currentLlmResponse: string
 const LLMResponseComponent = ({ llmResponse, currentLlmResponse, index }: LLMResponseComponentProps) => {
     // 5. Check if 'llmResponse' is not empty
     const hasLlmResponse = llmResponse && llmResponse.trim().length > 0;
+     
 
     return (
         <>
@@ -36,9 +40,12 @@ const LLMResponseComponent = ({ llmResponse, currentLlmResponse, index }: LLMRes
                 // 6. If 'llmResponse' is not empty, render a div with the 'Markdown' component
                 <div className="dark:bg-slate-800 bg-white shadow-lg rounded-lg p-4 mt-4">
                     <div className="flex items-center">
+                        <h2 className="flex items-center text-lg leading-none py-2">
+                            {<BookCheck size={20} className="mr-2" />}
+                        </h2>
                         <h2 className="text-lg font-semibold flex-grow dark:text-white text-black">Answer</h2>
                         <img src="./mistral.png" alt="mistral logo" className='w-6 h-6 mr-2' />
-                        <img src="./groq.png" alt="groq logo" className='w-6 h-6' />
+                        
                     </div>
                     <div className="dark:text-gray-300 text-gray-800">
                         <Markdown>{llmResponse}</Markdown>

@@ -12,17 +12,17 @@ import { Providers } from '@/components/providers';
 const meta = {
   title: 'answer engine',
   description:
-    'anwser engine built by developers digest',
+    'answer engine built by developers digest',
 };
 export const metadata: Metadata = {
   ...meta,
   title: {
-    default: 'answer engine',
+    default: 'llm answer engine',
     template: `%s - answer engine`,
   },
   icons: {
-    icon: '/favicon.ico',
-    shortcut: '/favicon-16x16.png',
+    icon: '/favicon.png',
+    shortcut: '/favicon.png',
     apple: '/apple-touch-icon.png',
   },
   twitter: {

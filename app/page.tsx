@@ -16,6 +16,9 @@ import LLMResponseComponent from '@/components/answer/LLMResponseComponent';
 import ImagesComponent from '@/components/answer/ImagesComponent';
 import VideosComponent from '@/components/answer/VideosComponent';
 import FollowUpComponent from '@/components/answer/FollowUpComponent';
+
+import { FaSearch } from 'react-icons/fa';
+
 // 2. Set up types
 interface SearchResult {
   favicon: string;
@@ -187,9 +190,10 @@ export default function Page() {
                 )}
               </div>
               <div className="w-full md:w-1/4 lg:pl-2">
-                {message.videos && <VideosComponent key={`videos-${index}`} videos={message.videos} />}
                 {message.images && <ImagesComponent key={`images-${index}`} images={message.images} />}
+                {message.videos && <VideosComponent key={`videos-${index}`} videos={message.videos} />}
               </div>
+
             </div>
           ))}
         </div>
@@ -215,11 +219,13 @@ export default function Page() {
               }}
             >
               <div className="relative flex flex-col w-full overflow-hidden max-h-60 grow dark:bg-slate-800 bg-gray-100 rounded-full sm:border sm:px-2">
+                
                 <Textarea
+                  
                   ref={inputRef}
                   tabIndex={0}
                   onKeyDown={onKeyDown}
-                  placeholder="Send a message."
+                  placeholder="Search"
                   className="min-h-[60px] w-full resize-none bg-transparent px-4 py-[1.3rem] focus-within:outline-none sm:text-sm dark:text-white text-black"
                   autoFocus
                   spellCheck={false}
@@ -235,10 +241,10 @@ export default function Page() {
                     <TooltipTrigger asChild>
                       <Button type="submit" size="icon" disabled={inputValue === ''}>
                         <IconArrowElbow />
-                        <span className="sr-only">Send message</span>
+                        <span className="sr-only">Search</span>
                       </Button>
                     </TooltipTrigger>
-                    <TooltipContent>Send message</TooltipContent>
+                    <TooltipContent>Search</TooltipContent>
                   </Tooltip>
                 </div>
               </div>
