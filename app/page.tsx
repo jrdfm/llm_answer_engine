@@ -209,7 +209,7 @@ export default function Page() {
       </div> 
       <div className="fixed inset-x-0 bottom-0 w-full bg-gradient-to-b duration-300 ease-in-out animate-in dark:from-gray-900/10 dark:from-10% peer-[[data-state=open]]:group-[]:lg:pl-[250px] peer-[[data-state=open]]:group-[]:xl:pl-[300px]] mb-4">
         <div className="mx-auto sm:max-w-2xl sm:px-3">
-          <div className=" border-t shadow-lg  rounded-full dark:bg-stone-950/80 bg-gray-100">
+          <div className=" border-t shadow-lg  rounded-full dark:bg-stone-950/5 bg-gray-100">
             <form
               ref={formRef}
               onSubmit={async (e: FormEvent<HTMLFormElement>) => {
