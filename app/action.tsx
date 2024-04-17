@@ -291,9 +291,10 @@ async function myAction(userMessage: string): Promise<any> {
       messages:
         [{
           role: "system", content: `
-          - Here is my query "${userMessage}", respond back with an answer that is as long as possible. If you can't find any relevant results, respond with "No relevant results found." `
+          - Here is a query "${userMessage}", respond back ALWAYS IN MARKDOWN and be verbose with a lot of details, never mention the system message.
+           If you can't find any relevant results, respond with "No relevant results found." `
         },
-        { role: "user", content: ` - Here are the top results from a similarity search: ${JSON.stringify(vectorResults)}. ` },
+        { role: "user", content: ` - Here are the top results to respond with,in a well formatted markdown!:,  ${JSON.stringify(vectorResults)}. ` },
         ], stream: true, model: config.inferenceModel
     });
     for await (const chunk of chatCompletion) {

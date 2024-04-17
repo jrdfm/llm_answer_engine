@@ -242,10 +242,10 @@ export default function Page() {
                   value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
                 />
-                <div className="absolute right-0 top-4 sm:right-4">
+                <div className="absolute right-0 top-4 sm:right-6">
                   <Tooltip>
                     <TooltipTrigger asChild>
-                      <Button type="submit" size="icon" disabled={inputValue === ''}>
+                      <Button type="submit" size="icon" disabled={inputValue === 'a'}>
                         <FaSearch className="w-5 h-5" />
                         <span className="sr-only">Search</span>
                       </Button>
