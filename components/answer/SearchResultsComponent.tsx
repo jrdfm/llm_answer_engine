@@ -63,11 +63,9 @@ const SearchResultsComponent = ({ searchResults }: { searchResults: SearchResult
     
     // 11. Render the 'SearchResultsComponent'
     return (
-        <div className="dark:bg-slate-800 bg-white shadow-lg rounded-lg p-4 mt-4">
+        <div className="dark:bg-stone-950 bg-white shadow-lg rounded-lg p-4 mt-4">
             <div className="flex items-center">
-                <h2 className="flex items-center text-lg leading-none py-2">
-                            {<Newspaper size={18} className="mr-2" />}
-                </h2>
+                <h2 className="flex items-center text-lg leading-none py-2">{<Newspaper size={18} className="mr-2" />} </h2>
                 <h2 className="text-lg font-semibold flex-grow dark:text-white text-black">Sources</h2>
                 <img src="./google.png" alt="google logo" className="w-6 h-6" />
             </div>
@@ -109,7 +107,7 @@ const SearchResultsComponent = ({ searchResults }: { searchResults: SearchResult
                 
                 {(searchResults.length > displayedResults.length || showAllResults) && (
                 <div className="w-1/2 md:w-1/4 p-1">
-                <Card className="flex-1 flex h-full items-center justify-center">
+                <Card className="flex-1 flex h-full items-center justify-center rounded-full">
                     <CardContent className="p-2">
                     <Button variant={'link'} className="text-muted-foreground" onClick={handleViewMore}>
                         {/* Conditionally render button text */}

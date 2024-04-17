@@ -68,7 +68,7 @@ const VideosSkeleton = () => (
 
 // 12. Render the 'VideosComponent' JSX
 return (
-    <div className="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-4 mt-4 w-full">
+    <div className="bg-white dark:bg-stone-950 shadow-lg rounded-lg p-4 mt-4 w-full">
         {/* 13. Render the header with the "Videos" title and the Serper logo */}
         <div className="flex items-center">
             <h2 className="flex items-center text-lg leading-none py-2"> {<Video size={18} className="mr-2" />} </h2>
@@ -107,7 +107,7 @@ return (
         {videos.length > 3 && (
             <div className="flex justify-center mt-4">
                 <button
-                    className="bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-black dark:text-white font-semibold py-2 px-4 rounded shadow"
+                    className="bg-gray-100 dark:bg-gray-900/100 hover:bg-gray-200 dark:hover:bg-gray-600 text-black dark:text-white font-semibold py-2 px-4 rounded-full shadow"
                     onClick={() => setShowMore(!showMore)}
                 >
                     {showMore ? 'Show Less' : 'Show More'}

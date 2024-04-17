@@ -176,6 +176,7 @@ export default function Page() {
                 {message.searchResults && (
                   <SearchResultsComponent key={`searchResults-${index}`} searchResults={message.searchResults} />
                 )}
+
                 {message.type === 'userMessage' && <UserMessageComponent message={message.userMessage} />}
                 <LLMResponseComponent
                   llmResponse={message.content}
@@ -193,17 +194,22 @@ export default function Page() {
                 {message.images && <ImagesComponent key={`images-${index}`} images={message.images} />}
                 {message.videos && <VideosComponent key={`videos-${index}`} videos={message.videos} />}
               </div>
-
+              
+              <div className = "px-2 py-2 space-y-4 border-t shadow-lg dark:bg-slate-800 bg-gray-100 rounded-full sm:border md:py-4">
+              
+              </div>
+            
+            
             </div>
           ))}
         </div>
       )}
       <div className="pb-[80px] pt-4 md:pt-10">
         <ChatScrollAnchor trackVisibility={true} />
-      </div>
+      </div> 
       <div className="fixed inset-x-0 bottom-0 w-full bg-gradient-to-b duration-300 ease-in-out animate-in dark:from-gray-900/10 dark:from-10% peer-[[data-state=open]]:group-[]:lg:pl-[250px] peer-[[data-state=open]]:group-[]:xl:pl-[300px]] mb-4">
-        <div className="mx-auto sm:max-w-2xl sm:px-4">
-          <div className="px-4 py-2 space-y-4 border-t shadow-lg dark:bg-slate-800 bg-gray-100 rounded-full sm:border md:py-4">
+        <div className="mx-auto sm:max-w-2xl sm:px-3">
+          <div className="border-t shadow-lg  rounded-full sm:border ">
             <form
               ref={formRef}
               onSubmit={async (e: FormEvent<HTMLFormElement>) => {
@@ -218,7 +224,7 @@ export default function Page() {
                 if (!value) return;
               }}
             >
-              <div className="relative flex flex-col w-full overflow-hidden max-h-60 grow dark:bg-slate-800 bg-gray-100 rounded-full sm:border sm:px-2">
+              <div className="relative flex flex-col w-full overflow-hidden max-h-60 grow dark:bg-stone-950/80 bg-gray-100 rounded-full sm:border sm:px-2">
                 
                 <Textarea
                   
@@ -240,7 +246,7 @@ export default function Page() {
                   <Tooltip>
                     <TooltipTrigger asChild>
                       <Button type="submit" size="icon" disabled={inputValue === ''}>
-                        <IconArrowElbow />
+                        <FaSearch className="w-5 h-5" />
                         <span className="sr-only">Search</span>
                       </Button>
                     </TooltipTrigger>

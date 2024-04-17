@@ -45,10 +45,10 @@ const ImagesComponent: React.FC<ImagesComponentProps> = ({ images }) => {
             setSelectedImage(null);
         }
     };
-
+    
     // 9. Render the 'ImagesComponent'
     return (
-        <div className="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-4 mt-4">
+        <div className="bg-white dark:bg-stone-950 shadow-lg rounded-lg p-4 mt-4">
             <div className="flex items-center">
                 <h2 className="flex items-center text-lg leading-none py-2"> {<Image size={18} className="mr-2" />} </h2>
                 <h2 className="text-lg font-semibold flex-grow text-black dark:text-white">Images</h2>
@@ -80,7 +80,7 @@ const ImagesComponent: React.FC<ImagesComponentProps> = ({ images }) => {
                 // 12. Render a 'Show More/Show Less' button if there are more than 3 images
                 <div className="flex justify-center mt-4">
                     <button
-                        className="bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-black dark:text-white font-semibold py-2 px-4 rounded shadow"
+                        className="bg-gray-100 dark:bg-gray-900/100 hover:bg-gray-200 dark:hover:bg-gray-600 text-black dark:text-white font-semibold py-2 px-4 rounded-full shadow"
                         onClick={() => setShowMore(!showMore)}
                     >
                         {showMore ? 'Show Less' : 'Show More'}
