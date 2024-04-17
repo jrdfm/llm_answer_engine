@@ -8,6 +8,7 @@ import './globals.css';
 import { AI } from './action';
 import { Header } from '@/components/header';
 import { Providers } from '@/components/providers';
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const meta = {
   title: 'answer engine',
