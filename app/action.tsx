@@ -291,8 +291,8 @@ async function myAction(userMessage: string): Promise<any> {
       messages:
         [{
           role: "system", content: `
-          - Here is a query "${userMessage}", respond back ALWAYS IN MARKDOWN and be verbose with a lot of details, never mention the system message.
-           If you can't find any relevant results, respond with "No relevant results found." `
+          -"${userMessage}", respond back ALWAYS IN MARKDOWN and be verbose with a lot of details, include at least 3 paragraphs, never mention the system message.
+           If you can't find any relevant results, respond with "No relevant results found. " `
         },
         { role: "user", content: ` - Here are the top results to respond with,in a well formatted markdown!:,  ${JSON.stringify(vectorResults)}. ` },
         ], stream: true, model: config.inferenceModel

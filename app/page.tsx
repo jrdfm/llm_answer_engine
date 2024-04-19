@@ -245,7 +245,7 @@ export default function Page() {
                 <div className="absolute right-0 top-4 sm:right-8">
                   <Tooltip>
                     <TooltipTrigger asChild>
-                      <Button type="submit" size="icon" disabled={inputValue === 'a'}>
+                      <Button type="submit" size="icon" disabled={inputValue === ''}>
                         <FaSearch className="w-5 h-5" />
                         <span className="sr-only">Search</span>
                       </Button>

@@ -33,7 +33,7 @@ const LLMResponseComponent = ({ llmResponse, currentLlmResponse, index }: LLMRes
     // 5. Check if 'llmResponse' is not empty
     const hasLlmResponse = llmResponse && llmResponse.trim().length > 0;
      
-
+    // console.log(hasLlmResponse, llmResponse, currentLlmResponse, index);
     return (
         <>
             {hasLlmResponse ? (
